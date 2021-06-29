@@ -4,8 +4,8 @@
 	<test thread-count="5" name="Test">
 		<classes>
 		
-			<class name="Tests.AboutUstest" />
-			<!-- <class name="Tests.AgentRegistrationTest" />
+			<class name="Tests.AboutUsTest" />
+		    <class name="Tests.AgentRegistrationTest" />
 			<class name="Tests.BlogTest" />
 			<class name="Tests.CancelTicketTest" />
 			<class name="Tests.CareerTest" />
@@ -19,7 +19,7 @@
 			<class name="Tests.ShowTicketTest" />
 			<class name="Tests.SMSlinkTest" />
 			<class name="Tests.SocialMediaTest" />
-			<class name="Tests.userAgreementTest" /> -->
+			<class name="Tests.userAgreementTest" /> 
 
 		</classes>
 
