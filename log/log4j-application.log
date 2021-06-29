@@ -1,3 +1,4 @@
-2021-06-29 13:29:54,699  INFO [main] BaseTest:51 - Clicked successfully on Agent Registration Button
-2021-06-29 13:31:02,220  INFO [main] BaseTest:61 - Clicked successfully on Login Agent Button
-2021-06-29 13:31:02,335  INFO [main] BaseTest:65 - Test Case- Checking Agent Login functionality Passed
+2021-06-29 15:21:58,120  INFO [main] BaseTest:35 - Clicked on Sign In Icon
+2021-06-29 15:21:58,506  INFO [main] BaseTest:37 - Clicked on Sign In Button
+2021-06-29 15:21:59,896  INFO [main] BaseTest:39 - Entered an invalid mobile number
+2021-06-29 15:22:04,902  INFO [main] BaseTest:46 - Test Case- Checking Login Page functionality Passed
