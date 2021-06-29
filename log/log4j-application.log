@@ -1,0 +1,3 @@
+2021-06-29 13:29:54,699  INFO [main] BaseTest:51 - Clicked successfully on Agent Registration Button
+2021-06-29 13:31:02,220  INFO [main] BaseTest:61 - Clicked successfully on Login Agent Button
+2021-06-29 13:31:02,335  INFO [main] BaseTest:65 - Test Case- Checking Agent Login functionality Passed

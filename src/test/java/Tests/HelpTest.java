@@ -21,11 +21,13 @@ public class HelpTest extends BaseTest {
 			// calling methods from HelpPage
 			HelpPage help = new HelpPage(driver);
 			help.ClickOnHelp();
+			logger.info("Clicked successfully on Help Button"); 
 			help.changeWindow();
 			
 			// validating the title of the page
 			assertTrue(driver.getTitle().contains("red:Care"));
-						
+			logger.info("Successfully validated the title of the page"); 
+			
 			help.ClickCross();
 			try {
 				Thread.sleep(2000);
@@ -39,6 +41,8 @@ public class HelpTest extends BaseTest {
 			// scrolling down
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,250)", "");
+			
+			logger.info("Test Case- Checking functionality of Help Page Passed"); 
 
 		}
 	}

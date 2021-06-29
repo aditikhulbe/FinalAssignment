@@ -31,6 +31,9 @@ public class SocialMediaTest extends BaseTest {
 		
 		//calling methods from offers Page
 		media.ClickOnFacebook();
+		
+		logger.info("Clicked successfully on Facebook Button");
+		
 		media.changeWindow();
 		try {
 			Thread.sleep(5000);
@@ -41,10 +44,10 @@ public class SocialMediaTest extends BaseTest {
 
 		// validating the title of the page
 		assertTrue(driver.getTitle().contains("redBus"));
-
+		logger.info("Vaidated the page title successfully");
 		// closing the new Window
 	  media.closeWindow();
-
+	  logger.info("Test Case- checking functionality of Social Media 1 Passed");
 	}
 
 	// test scenario for checking Twitter Page functionality
@@ -69,6 +72,7 @@ public class SocialMediaTest extends BaseTest {
 		
 		//calling methods from offers Page
 		media.ClickOnTwitter();
+		  logger.info("Successfully clicked on Twitter button");
 		media.changeWindow();
 		try {
 			Thread.sleep(5000);
@@ -79,10 +83,13 @@ public class SocialMediaTest extends BaseTest {
 
 		// validating the title of the page
 		assertTrue(driver.getTitle().contains("redBus"));
-
+		  logger.info("Validated the page title successfully");
 		// closing the new Window
 	  media.closeWindow();
 
+	  
+	  logger.info("Test Case- checking functionality of Social Media 2 Passed");
 	}
+	
 	
 }

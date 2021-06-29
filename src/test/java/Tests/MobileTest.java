@@ -1,17 +1,32 @@
  package Tests;
 
 
+import java.util.HashMap;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 
 import Pages.MobilePage;
+import utils.CommonUtils;
 
 
 public class MobileTest extends BaseTest {
+		// defining the Excel sheet name
+	private String sheetName = "MobilePage";
+	
 	// test scenario for checking Mobile Page functionality
 	@Test
 	public void MobilePageFunctionality() {
-
+		
+		//fetching the data from Excel Sheet
+		String ValidNumber = "MobileSearch";
+        HashMap<String, String> testData = new HashMap<String, String>();
+        testData = reader.getRowTestData(sheetName, ValidNumber);
+      
+        String executionRequired = testData.get("Execution").toLowerCase();
+        
+        // if execution required field is no
+        CommonUtils.toCheckExecutionRequired(executionRequired);
 		// extent reporting
 		extentTest = extent.startTest("Checking Mobile page functionality");
 
@@ -30,6 +45,9 @@ public class MobileTest extends BaseTest {
 
 		// calling methods from offers Page
 		mobile.ClickOnMobile();
+		
+		logger.info("Clicked successfully on Mobile Button"); 
+		
 		mobile.changeWindow();
 		
 		try {
@@ -39,7 +57,8 @@ public class MobileTest extends BaseTest {
 			e.printStackTrace();
 		}
 		
-		mobile.enterMobileNo("8383944719");
+		mobile.enterMobileNo(testData.get("ValidNumber"));
+		logger.info("Entered Mobile Number"); 
 		
 		try {
 			Thread.sleep(1000);
@@ -49,7 +68,7 @@ public class MobileTest extends BaseTest {
 		}
 		
 		mobile.SendSMS();
-		
+		logger.info("Clicked on Send SMS"); 
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -60,6 +79,7 @@ public class MobileTest extends BaseTest {
 
 		// closing the new Window
 		mobile.closeWindow();
+		logger.info("test Case- Checking functionality of Mobile Test Page Passed"); 
 
 	}
 

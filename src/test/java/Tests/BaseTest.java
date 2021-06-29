@@ -1,5 +1,7 @@
 package Tests;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -16,6 +18,8 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+
+import utils.ExcelFileIO;
 import utils.Screenshots;
 
 import java.io.File;
@@ -30,6 +34,10 @@ public class BaseTest {
 	//initializing the driver
 	static WebDriver driver;
 
+	public static Logger logger = Logger.getLogger(BaseTest.class); // defining logger
+	public static String LOG_FILE = ".\\Resources\\log4j.properties"; // location of the log file
+	static FileInputStream logfile = null;
+
 	public static ExtentReports extent;
 	public static ExtentTest extentTest;
 
@@ -37,9 +45,13 @@ public class BaseTest {
 	static FileInputStream fis = null;
 	static Properties prop = new Properties();
 
+	public static ExcelFileIO reader = null;
+	 
 	static {
 		try {
 			fis = new FileInputStream(file);
+			logfile = new FileInputStream(LOG_FILE);
+			PropertyConfigurator.configure(logfile);
 		}
 
 		catch (FileNotFoundException e) {
@@ -48,10 +60,27 @@ public class BaseTest {
 
 		try {
 			prop.load(fis);
+			prop.load(logfile);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
+		
+		
+		try {
+
+			 
+
+            reader = new ExcelFileIO(".\\Resources\\Data.xlsx");
+        }
+        catch(Exception e) {
+
+ 
+
+            logger.error(e.getMessage());
+        }
+    }
+	
+	
 
 	@BeforeSuite
 	public void setExtent() {

@@ -2,6 +2,8 @@ package Tests;
 
 import static org.testng.Assert.assertTrue;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 
@@ -31,19 +33,17 @@ public class OffersTest extends BaseTest {
 			
 			//calling methods from offers Page
 			offer.ClickOnOffers();
+			logger.info("Clicked successfully on Offers Button"); 
 			offer.changeWindow();
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			driver.manage().timeouts().implicitlyWait(500, TimeUnit.SECONDS);
 
 			// validating the title of the page
 			assertTrue(driver.getTitle().contains("Offers"));
+			logger.info("Successfully validated the title of the Page"); 
 
 			// closing the new Window
 			offer.closeWindow();
+			logger.info("test Case- Checking functionality of Offers Page Passed"); 
 
 		}
 	

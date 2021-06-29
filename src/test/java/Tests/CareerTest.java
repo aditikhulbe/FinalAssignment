@@ -2,6 +2,8 @@ package Tests;
 
 
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 
@@ -31,17 +33,18 @@ public class CareerTest extends BaseTest{
 		
 		//calling methods from career Page
 	   career.ClickOncareer();
+	   logger.info("Clicked successfully on Career Button"); 
 	   career.changeWindow();
 	   
-		try {
+	   try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+	   
 		career.ClickOnHirist();
-
+		logger.info("Clicked successfully on Hirist Button"); 
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
@@ -51,27 +54,16 @@ public class CareerTest extends BaseTest{
 		
 		career.closeWindow();
 	
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		driver.manage().timeouts().implicitlyWait(500, TimeUnit.SECONDS);
 		
 		
 		career.changeWindow();
 		
-		
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		driver.manage().timeouts().implicitlyWait(500, TimeUnit.SECONDS);
 		
 		// closing the new Window
 		career.closeWindow();
-		
+		logger.info("Test Case- checking functionality og Career page passed"); 
 
 	}
 

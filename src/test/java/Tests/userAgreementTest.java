@@ -32,6 +32,7 @@ public class userAgreementTest extends BaseTest {
 
 				// calling methods from offers Page
 				agree.ClickOnUserAgreement();
+				  logger.info("Successfully clicked on User Agreement Button");
 				agree.changeWindow();
 				try {
 					Thread.sleep(1000);
@@ -42,9 +43,10 @@ public class userAgreementTest extends BaseTest {
 
 				// validating the title of the page
 				assertTrue(driver.getTitle().contains("User Agreement"));
-
+				  logger.info("Validated the page title successfully");
 				// closing the new Window
 				agree.closeWindow();
+				  logger.info("Test Case- checking functionality of User Agreement Page Passed");
 
 			}
 

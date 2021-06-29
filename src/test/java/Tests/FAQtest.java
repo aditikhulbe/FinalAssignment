@@ -9,10 +9,11 @@ import Pages.FAQpage;
 
 public class FAQtest extends BaseTest {
 
-	// test scenario for checking About Us Page functionality
+	// test scenario for checking FAQ Page functionality
 		@Test
 		public void FAQpageFunctionality() {
-
+			
+			logger.info("Checking functionality of FAQ page"); 
 			// extent reporting
 			extentTest = extent.startTest("Checking FAQ page functionality");
 
@@ -31,6 +32,7 @@ public class FAQtest extends BaseTest {
 			
 			// calling methods from FAQpage
 			faq.ClickOnFAQ();
+			logger.info("Clicked successfully on FAQ Button"); 
 			faq.changeWindow();
 			
 			//validating the title of the page
@@ -38,7 +40,7 @@ public class FAQtest extends BaseTest {
 			
 			//to see the content inside the General tab
 			faq.ClickOnGeneral();
-			
+			logger.info("Clicked successfully on General Button"); 
 			try {
 				Thread.sleep(5000);
 			} catch (InterruptedException e) {
@@ -69,7 +71,7 @@ public class FAQtest extends BaseTest {
 						
 			//to read the content inside Ticket related tab
 			faq.ClickOnTicketRelated();
-			
+			logger.info("Clicked successfully on Ticket Related Button"); 
 
 			try {
 				Thread.sleep(5000);
@@ -96,6 +98,7 @@ public class FAQtest extends BaseTest {
 			
 			//to read content inside payment related tab
 			faq.ClickOnPaymentRelated();
+			logger.info("Clicked successfully on Payment Related Button"); 
 			
 			try {
 				Thread.sleep(5000);
@@ -122,6 +125,7 @@ public class FAQtest extends BaseTest {
 			
 			//to read content inside cancellation related tab
 			faq.ClickOncancelRelated();
+			logger.info("Clicked successfully on Cancel Related Button"); 
 			
 			try {
 				Thread.sleep(5000);
@@ -148,6 +152,7 @@ public class FAQtest extends BaseTest {
 			
 			//to read content inside refund related tab
 			faq.ClickOnRefundRelated();
+			logger.info("Clicked successfully on Refund Related Button"); 
 			
 			try {
 				Thread.sleep(5000);
@@ -174,6 +179,7 @@ public class FAQtest extends BaseTest {
 						
 			//to read content inside insurance related tab
 			faq.ClickOnInsuranceRelated();
+			logger.info("Clicked successfully on Insurance related Button"); 
 			
 			try {
 				Thread.sleep(5000);
@@ -196,6 +202,8 @@ public class FAQtest extends BaseTest {
 			//to close the new window
 			faq.closeWindow();
 		
+			logger.info("Test Case- Checking functionality of FAQ page Passed"); 
+			
 		}
 		
 }

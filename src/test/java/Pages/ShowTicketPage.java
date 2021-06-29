@@ -51,13 +51,13 @@ public class ShowTicketPage {
 	}
 
 	//method for entering ticket number
-	public void EnterTicketNo() {
-		TicketNumber.sendKeys("123456");
+	public void EnterTicketNo(String ticket) {
+		TicketNumber.sendKeys(ticket);
 	}
 	
 	//method for entering email id
-	public void EnterEmailId() {
-		EmailId.sendKeys("aditikh@gmail.com");
+	public void EnterEmailId(String email) {
+		EmailId.sendKeys(email);
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {

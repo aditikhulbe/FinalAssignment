@@ -28,27 +28,12 @@ public class LoginPage {
     
     @FindBy(how = How.XPATH, using = "//li[@id='signInLink']")
     public WebElement signIn;
-    
-    @FindBy(how = How.CLASS_NAME, using = "social-acc-box-br margin-g")    
-    public WebElement googleIcon;
-    
-    //locator for entering email id
-    @FindBy(how = How.XPATH, using = "//input[@id='identifierId']")
-    public WebElement EmaidId;
-    
-  
-    
-   // invalid login
-    
+   
     //entering an invalid mobile number
     @FindBy(how = How.XPATH, using = "//input[@id='mobileNoInp']")
     public WebElement invalidMobile;
-  
-    
-    //for clicking on captcha
-    @FindBy(how = How.XPATH, using =  "//div[@id='recaptchaElement']" )
-    public WebElement captcha;
-    
+
+    //methods
     public void iconClick() {
         icon.click();
     }
@@ -57,27 +42,15 @@ public class LoginPage {
         signIn.click();
     }
 
-    public void GoogleSignInClick() throws Throwable {
-    	
-		driver.switchTo()
-				.frame(driver.findElement(By.xpath("//body/div[6]/div[1]/div[2]/div[1]/div[1]/div[3]/iframe[1]")));
-		driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div[1]/div[8]/div[1]")).click();
-	}
+
     
  
     
-    public void enterMobileNumber() {
+    public void enterMobileNumber(String mobile) {
     	  driver.switchTo().frame(driver.findElement(By.className("modalIframe")));
-    	invalidMobile.sendKeys("123456e788"); 
+    	invalidMobile.sendKeys(mobile); 
     	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
-    public void captcha() {
-    	captcha.click();
-    	  	
-    }
-      
-	public void EnterEmail() {
-		EmaidId.sendKeys("aditi@gmail.com");
-	}
+	
 }	
 	

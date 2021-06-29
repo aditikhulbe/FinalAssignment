@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="14028" started-at="2021-06-28T14:48:18Z" finished-at="2021-06-28T14:48:32Z">
+  <suite started-at="2021-06-29T07:59:43Z" name="Default suite" finished-at="2021-06-29T08:01:02Z" duration-ms="78993">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="14028" started-at="2021-06-28T14:48:18Z" finished-at="2021-06-28T14:48:32Z">
-      <class name="Tests.CancelTicketTest">
-        <test-method status="PASS" signature="setExtent()[pri:0, instance:Tests.CancelTicketTest@78aab498]" name="setExtent" is-config="true" duration-ms="117" started-at="2021-06-28T14:48:18Z" finished-at="2021-06-28T14:48:18Z">
+    <test started-at="2021-06-29T07:59:43Z" name="Default test" finished-at="2021-06-29T08:01:02Z" duration-ms="78993">
+      <class name="Tests.AgentRegistrationTest">
+        <test-method is-config="true" signature="setExtent()[pri:0, instance:Tests.AgentRegistrationTest@4fc5e095]" started-at="2021-06-29T13:29:43Z" name="setExtent" finished-at="2021-06-29T13:29:43Z" duration-ms="259" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setExtent -->
-        <test-method status="PASS" signature="intializeWebdriver()[pri:0, instance:Tests.CancelTicketTest@78aab498]" name="intializeWebdriver" is-config="true" duration-ms="2791" started-at="2021-06-28T14:48:18Z" finished-at="2021-06-28T14:48:21Z">
+        <test-method is-config="true" signature="intializeWebdriver()[pri:0, instance:Tests.AgentRegistrationTest@4fc5e095]" started-at="2021-06-29T13:29:43Z" name="intializeWebdriver" finished-at="2021-06-29T13:29:46Z" duration-ms="3139" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- intializeWebdriver -->
-        <test-method status="PASS" signature="openBrowser()[pri:0, instance:Tests.CancelTicketTest@78aab498]" name="openBrowser" is-config="true" duration-ms="3447" started-at="2021-06-28T14:48:21Z" finished-at="2021-06-28T14:48:24Z">
+        <test-method is-config="true" signature="openBrowser()[pri:0, instance:Tests.AgentRegistrationTest@4fc5e095]" started-at="2021-06-29T13:29:46Z" name="openBrowser" finished-at="2021-06-29T13:29:49Z" duration-ms="2428" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openBrowser -->
-        <test-method status="PASS" signature="CancelTicket()[pri:0, instance:Tests.CancelTicketTest@78aab498]" name="CancelTicket" duration-ms="7682" started-at="2021-06-28T14:48:24Z" finished-at="2021-06-28T14:48:32Z">
+        <test-method signature="RegAgentFunctionality()[pri:0, instance:Tests.AgentRegistrationTest@4fc5e095]" started-at="2021-06-29T13:29:49Z" name="RegAgentFunctionality" finished-at="2021-06-29T13:31:02Z" duration-ms="73120" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CancelTicket -->
-        <test-method status="PASS" signature="attachScreenshot(org.testng.ITestResult)[pri:0, instance:Tests.CancelTicketTest@78aab498]" name="attachScreenshot" is-config="true" duration-ms="5" started-at="2021-06-28T14:48:32Z" finished-at="2021-06-28T14:48:32Z">
+        </test-method> <!-- RegAgentFunctionality -->
+        <test-method is-config="true" signature="attachScreenshot(org.testng.ITestResult)[pri:0, instance:Tests.AgentRegistrationTest@4fc5e095]" started-at="2021-06-29T13:31:02Z" name="attachScreenshot" finished-at="2021-06-29T13:31:02Z" duration-ms="10" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=CancelTicket status=SUCCESS method=CancelTicketTest.CancelTicket()[pri:0, instance:Tests.CancelTicketTest@78aab498] output={null}]]]>
+                <![CDATA[[TestResult name=RegAgentFunctionality status=SUCCESS method=AgentRegistrationTest.RegAgentFunctionality()[pri:0, instance:Tests.AgentRegistrationTest@4fc5e095] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- attachScreenshot -->
-        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:Tests.CancelTicketTest@78aab498]" name="closeBrowser" is-config="true" duration-ms="78" started-at="2021-06-28T14:48:32Z" finished-at="2021-06-28T14:48:32Z">
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Tests.AgentRegistrationTest@4fc5e095]" started-at="2021-06-29T13:31:02Z" name="closeBrowser" finished-at="2021-06-29T13:31:02Z" duration-ms="255" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
-        <test-method status="PASS" signature="endReport()[pri:0, instance:Tests.CancelTicketTest@78aab498]" name="endReport" is-config="true" duration-ms="210" started-at="2021-06-28T14:48:32Z" finished-at="2021-06-28T14:48:32Z">
+        <test-method is-config="true" signature="endReport()[pri:0, instance:Tests.AgentRegistrationTest@4fc5e095]" started-at="2021-06-29T13:31:02Z" name="endReport" finished-at="2021-06-29T13:31:03Z" duration-ms="528" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endReport -->
-      </class> <!-- Tests.CancelTicketTest -->
+      </class> <!-- Tests.AgentRegistrationTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -30,13 +30,13 @@ public class SMSlinkPage {
 			public WebElement SendClick;
 			
 			//method for entering valid number in TextBox
-			public void EnterValidNumber() {
-				ValidNumber.sendKeys("7428532513");
+			public void EnterValidNumber(String number) {
+				ValidNumber.sendKeys(number);
 			}
 			
 			//method for clicking on TextBox
-			public void EnterInvalidNumber() {
-				InvalidNumber.sendKeys("123456789");
+			public void EnterInvalidNumber(String invalid) {
+				InvalidNumber.sendKeys(invalid);
 			}
 			
 			//method for clicking on send link button

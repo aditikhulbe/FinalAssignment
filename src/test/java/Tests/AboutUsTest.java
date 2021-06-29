@@ -2,6 +2,8 @@ package Tests;
 
 import static org.testng.Assert.assertTrue;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 
@@ -14,6 +16,7 @@ public class AboutUsTest extends BaseTest {
 	@Test
 	public void AboutUsFunctionality() {
 
+		
 		// extent reporting
 		extentTest = extent.startTest("Checking About Us page functionality");
 
@@ -27,20 +30,19 @@ public class AboutUsTest extends BaseTest {
 			e.printStackTrace();
 		}
 
+		logger.info("Clicked successfully on About Us"); 
+		
 		// calling methods from AboutUsPage
 		AboutUsPage about = new AboutUsPage(driver);
 		about.ClickOnAboutUs();
 		about.changeWindow();
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		
 		//validating the title of the page
 		assertTrue(driver.getTitle().contains("About Us"));
+		logger.info("Title of page successfully validated"); 
 		about.closeWindow();
+		logger.info("Test Case- Functionality of About Us page Passed"); 
 	
 	}
 }

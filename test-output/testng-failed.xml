@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test name="Default test(failed)">
     <classes>
-      <class name="Tests.BusHireTest">
+      <class name="Tests.FAQtest">
         <methods>
+          <include name="FAQpageFunctionality"/>
           <include name="openBrowser"/>
           <include name="attachScreenshot"/>
-          <include name="whenUserEntersValidInformationForOutstation"/>
           <include name="setExtent"/>
           <include name="intializeWebdriver"/>
           <include name="closeBrowser"/>
           <include name="endReport"/>
         </methods>
-      </class> <!-- Tests.BusHireTest -->
+      </class> <!-- Tests.FAQtest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
