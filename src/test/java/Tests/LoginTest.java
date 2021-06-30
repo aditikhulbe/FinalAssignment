@@ -32,10 +32,35 @@ public class LoginTest extends BaseTest {
 		
 		//calling methods from LoginPage
 		login.iconClick();
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
+		}
+		
 		logger.info("Clicked on Sign In Icon"); 
 		login.signInClick();
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
+		}
+		
 		logger.info("Clicked on Sign In Button"); 
 		login.enterMobileNumber(testData.get("MobileNumber"));
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
+		}
+		
+		
 		logger.info("Entered an invalid mobile number"); 
 		try {
 			Thread.sleep(5000);

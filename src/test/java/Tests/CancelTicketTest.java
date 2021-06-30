@@ -40,11 +40,45 @@ public class CancelTicketTest  extends BaseTest{
 		//calling methods from CancelTicketPage
 		cancel.ManageBookingiconClick();
 		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		
+		
+		
 		logger.info("Clicked successfully on Manage Booking"); 
 		
 		cancel.CancelTicket();
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		
+		
 		cancel.EnterTicketNo(testData.get("TicketNo"));
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		
 		cancel.EnterEmailId(testData.get("Email"));
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		
 		
 		logger.info("Ticket No and Email filled in successfully"); 
 		

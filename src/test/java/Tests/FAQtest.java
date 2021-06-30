@@ -32,6 +32,13 @@ public class FAQtest extends BaseTest {
 			
 			// calling methods from FAQpage
 			faq.ClickOnFAQ();
+			
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
 			logger.info("Clicked successfully on FAQ Button"); 
 			faq.changeWindow();
 			

@@ -8,6 +8,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.ie.InternetExplorerOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -18,7 +22,6 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-
 import utils.ExcelFileIO;
 import utils.Screenshots;
 
@@ -26,12 +29,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
-	//initializing the driver
+	// initializing the driver
 	static WebDriver driver;
 
 	public static Logger logger = Logger.getLogger(BaseTest.class); // defining logger
@@ -46,7 +51,7 @@ public class BaseTest {
 	static Properties prop = new Properties();
 
 	public static ExcelFileIO reader = null;
-	 
+
 	static {
 		try {
 			fis = new FileInputStream(file);
@@ -64,23 +69,15 @@ public class BaseTest {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
+
 		try {
 
-			 
+			reader = new ExcelFileIO(".\\Resources\\Data.xlsx");
+		} catch (Exception e) {
 
-            reader = new ExcelFileIO(".\\Resources\\Data.xlsx");
-        }
-        catch(Exception e) {
-
- 
-
-            logger.error(e.getMessage());
-        }
-    }
-	
-	
+			logger.error(e.getMessage());
+		}
+	}
 
 	@BeforeSuite
 	public void setExtent() {
@@ -88,12 +85,12 @@ public class BaseTest {
 		extent.addSystemInfo("UserNameAutomation", "Aditi");
 	}
 
-
 	@AfterSuite
 	public void endReport() {
 		extent.flush();
 		extent.close();
 	}
+
 	@AfterMethod
 	public void attachScreenshot(ITestResult result) {
 
@@ -109,48 +106,54 @@ public class BaseTest {
 		extent.endTest(extentTest);
 	}
 
+	@SuppressWarnings("deprecation")
 	@BeforeMethod
-	public static void intializeWebdriver() {
+	public static void intializeWebdriver() throws MalformedURLException {
 		String type = prop.getProperty("BrowserType");
 		type = type.toLowerCase();
-		switch(type) {
+		switch (type) {
 		case "chrome":
 			System.setProperty("webdriver.chrome.driver", ".\\Drivers\\chromedriver.exe");
-			ChromeOptions chromeoption= new ChromeOptions();
-			chromeoption.setHeadless(false); //headless mode option
-			driver = new ChromeDriver(chromeoption); // driver to open Chrome
+			ChromeOptions chromeoption = new ChromeOptions();
+			chromeoption.setHeadless(false); // headless mode option..change to true for headless
+            chromeoption.addArguments("--disable-gpu");
+            chromeoption.addArguments("--disable-dev-shm-usage");
+            chromeoption.addArguments("--no-sandbox");
+            chromeoption.addArguments("--allow-insecure-localhost");
+            chromeoption.addArguments("user-agent=Chrome/91.0.4472.124");
+            chromeoption.addArguments("window-size=1920,1080");
+            driver = new ChromeDriver(chromeoption); // driver to open Chrome
 			driver.manage().window().maximize();
 			break;
 		case "firefox":
-			System.setProperty("webdriver.gecko.driver",".\\Drivers\\geckodriver.exe");
-			FirefoxOptions foxoption= new FirefoxOptions();
-			foxoption.setHeadless(true);//headless mode option
-			driver = new FirefoxDriver(foxoption); //driver to open firefox
+			System.setProperty("webdriver.gecko.driver", ".\\Drivers\\geckodriver.exe");
+			FirefoxOptions foxoption = new FirefoxOptions();
+			foxoption.setHeadless(false);// headless mode option..change to true for headless
+			driver = new FirefoxDriver(foxoption); // driver to open firefox
 			break;
-		case "edge":
-			System.setProperty("webdriver.edge.driver",".\\Drivers\\msedgedriver.exe");       
-			driver = new EdgeDriver();//driver to open edge
-			break;
-
+		case "internetexplorer":
+			 //driver to open Internet Explorer
+			 System.setProperty("webdriver.ie.driver",".\\Drivers\\IEDriverServer.exe");
+			 InternetExplorerOptions ie = new InternetExplorerOptions();  
+			 ie.ignoreZoomSettings(); 
+			 driver = new InternetExplorerDriver();
+			 driver.manage().window().maximize();
+			 
+			 
 		}
 
-
-
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);     //IMPLICIT WAIT
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); // IMPLICIT WAIT
 	}
 
-	@BeforeMethod //method to open the url 
+	@BeforeMethod // method to open the url
 	public static void openBrowser() {
 		driver.get(prop.getProperty("url"));
 	}
 
-
-	@AfterMethod //method to close the browser
+	@AfterMethod // method to close the browser
 	public static void closeBrowser() {
 		extent.endTest(extentTest);
 		driver.close();
 	}
 
 }
-
-

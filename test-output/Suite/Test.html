@@ -1,0 +1,189 @@
+<html>
+<head>
+<title>TestNG:  Test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>22/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Jun 30 17:31:58 IST 2021</td>
+</tr>
+<tr><td>Total time:</td><td>530 seconds (530516 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Tests.AboutUsTest.AboutUsFunctionality()'><b>AboutUsFunctionality</b><br>Test class: Tests.AboutUsTest</td>
+<td></td>
+<td>15</td>
+<td>Tests.AboutUsTest@13c3c1e1</td></tr>
+<tr>
+<td title='Tests.BlogTest.BlogPageFunctionality()'><b>BlogPageFunctionality</b><br>Test class: Tests.BlogTest</td>
+<td></td>
+<td>15</td>
+<td>Tests.BlogTest@1d8062d2</td></tr>
+<tr>
+<td title='Tests.CancelTicketTest.CancelTicket()'><b>CancelTicket</b><br>Test class: Tests.CancelTicketTest</td>
+<td></td>
+<td>26</td>
+<td>Tests.CancelTicketTest@3b956878</td></tr>
+<tr>
+<td title='Tests.CareerTest.CareersPageFunctionality()'><b>CareersPageFunctionality</b><br>Test class: Tests.CareerTest</td>
+<td></td>
+<td>25</td>
+<td>Tests.CareerTest@36546a22</td></tr>
+<tr>
+<td title='Tests.FAQtest.FAQpageFunctionality()'><b>FAQpageFunctionality</b><br>Test class: Tests.FAQtest</td>
+<td></td>
+<td>78</td>
+<td>Tests.FAQtest@285c08c8</td></tr>
+<tr>
+<td title='Tests.HelpTest.HelpPageFunctionality()'><b>HelpPageFunctionality</b><br>Test class: Tests.HelpTest</td>
+<td></td>
+<td>11</td>
+<td>Tests.HelpTest@5b40ceb</td></tr>
+<tr>
+<td title='Tests.MobileTest.MobilePageFunctionality()'><b>MobilePageFunctionality</b><br>Test class: Tests.MobileTest</td>
+<td></td>
+<td>8</td>
+<td>Tests.MobileTest@3918c187</td></tr>
+<tr>
+<td title='Tests.OffersTest.OffersPageFunctionality()'><b>OffersPageFunctionality</b><br>Test class: Tests.OffersTest</td>
+<td></td>
+<td>7</td>
+<td>Tests.OffersTest@2c88b9fc</td></tr>
+<tr>
+<td title='Tests.userAgreementTest.OffersPageFunctionality()'><b>OffersPageFunctionality</b><br>Test class: Tests.userAgreementTest</td>
+<td></td>
+<td>6</td>
+<td>Tests.userAgreementTest@2ece4966</td></tr>
+<tr>
+<td title='Tests.RpoolTest.RpoolFunctionality()'><b>RpoolFunctionality</b><br>Test class: Tests.RpoolTest</td>
+<td></td>
+<td>7</td>
+<td>Tests.RpoolTest@64dafeed</td></tr>
+<tr>
+<td title='Tests.RpoolTest.RpoolFunctionality2()'><b>RpoolFunctionality2</b><br>Test class: Tests.RpoolTest</td>
+<td></td>
+<td>16</td>
+<td>Tests.RpoolTest@64dafeed</td></tr>
+<tr>
+<td title='Tests.RpoolTest.RpoolFunctionality3()'><b>RpoolFunctionality3</b><br>Test class: Tests.RpoolTest</td>
+<td></td>
+<td>11</td>
+<td>Tests.RpoolTest@64dafeed</td></tr>
+<tr>
+<td title='Tests.RpoolTest.RpoolFunctionality4()'><b>RpoolFunctionality4</b><br>Test class: Tests.RpoolTest</td>
+<td></td>
+<td>12</td>
+<td>Tests.RpoolTest@64dafeed</td></tr>
+<tr>
+<td title='Tests.RpoolTest.RpoolFunctionality5()'><b>RpoolFunctionality5</b><br>Test class: Tests.RpoolTest</td>
+<td></td>
+<td>11</td>
+<td>Tests.RpoolTest@64dafeed</td></tr>
+<tr>
+<td title='Tests.SMSlinkTest.SMSfunctionalityInvalid()'><b>SMSfunctionalityInvalid</b><br>Test class: Tests.SMSlinkTest</td>
+<td></td>
+<td>15</td>
+<td>Tests.SMSlinkTest@388ba540</td></tr>
+<tr>
+<td title='Tests.SMSlinkTest.SMSfunctionalityValid()'><b>SMSfunctionalityValid</b><br>Test class: Tests.SMSlinkTest</td>
+<td></td>
+<td>15</td>
+<td>Tests.SMSlinkTest@388ba540</td></tr>
+<tr>
+<td title='Tests.ShowTicketTest.ShowMyTicket()'><b>ShowMyTicket</b><br>Test class: Tests.ShowTicketTest</td>
+<td></td>
+<td>32</td>
+<td>Tests.ShowTicketTest@1e63ec0b</td></tr>
+<tr>
+<td title='Tests.SocialMediaTest.SocialMediaPageFunctionality()'><b>SocialMediaPageFunctionality</b><br>Test class: Tests.SocialMediaTest</td>
+<td></td>
+<td>10</td>
+<td>Tests.SocialMediaTest@47605f2f</td></tr>
+<tr>
+<td title='Tests.SocialMediaTest.SocialMediaPageFunctionality2()'><b>SocialMediaPageFunctionality2</b><br>Test class: Tests.SocialMediaTest</td>
+<td></td>
+<td>15</td>
+<td>Tests.SocialMediaTest@47605f2f</td></tr>
+<tr>
+<td title='Tests.ValuesTest.ValuesPageFunctionality()'><b>ValuesPageFunctionality</b><br>Test class: Tests.ValuesTest</td>
+<td></td>
+<td>15</td>
+<td>Tests.ValuesTest@1dd0e7c4</td></tr>
+<tr>
+<td title='Tests.LoginTest.invalidLogin()'><b>invalidLogin</b><br>Test class: Tests.LoginTest</td>
+<td></td>
+<td>20</td>
+<td>Tests.LoginTest@618c5d94</td></tr>
+<tr>
+<td title='Tests.SearchBusTest.searchBus()'><b>searchBus</b><br>Test class: Tests.SearchBusTest</td>
+<td></td>
+<td>10</td>
+<td>Tests.SearchBusTest@295eaa7c</td></tr>
+</table><p>
+</body>
+</html>

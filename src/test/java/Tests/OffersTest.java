@@ -33,6 +33,14 @@ public class OffersTest extends BaseTest {
 			
 			//calling methods from offers Page
 			offer.ClickOnOffers();
+			
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 			logger.info("Clicked successfully on Offers Button"); 
 			offer.changeWindow();
 			driver.manage().timeouts().implicitlyWait(500, TimeUnit.SECONDS);

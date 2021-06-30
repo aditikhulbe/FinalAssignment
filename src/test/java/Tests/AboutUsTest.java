@@ -30,13 +30,26 @@ public class AboutUsTest extends BaseTest {
 			e.printStackTrace();
 		}
 
-		logger.info("Clicked successfully on About Us"); 
 		
 		// calling methods from AboutUsPage
 		AboutUsPage about = new AboutUsPage(driver);
 		about.ClickOnAboutUs();
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		logger.info("Clicked successfully on About Us"); 
+		
 		about.changeWindow();
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
 		
 		//validating the title of the page
 		assertTrue(driver.getTitle().contains("About Us"));

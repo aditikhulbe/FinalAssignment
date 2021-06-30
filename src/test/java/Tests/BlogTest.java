@@ -52,11 +52,23 @@ public class BlogTest extends BaseTest {
 			//calling methods from BlogPage
 			blog.ClickOnBlog();
 			
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
 			logger.info("Clicked successfully on Blog Button"); 
 			
 			blog.changeWindow();
 			
-			driver.manage().timeouts().implicitlyWait(500, TimeUnit.SECONDS);
+
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
 			
 			//validating the title of the page
 			assertTrue(driver.getTitle().contains("redBus Blog"));

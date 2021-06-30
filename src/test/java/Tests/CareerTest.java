@@ -33,6 +33,13 @@ public class CareerTest extends BaseTest{
 		
 		//calling methods from career Page
 	   career.ClickOncareer();
+	   
+	   try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	   
 	   logger.info("Clicked successfully on Career Button"); 
 	   career.changeWindow();
 	   
@@ -44,6 +51,13 @@ public class CareerTest extends BaseTest{
 		}
 	   
 		career.ClickOnHirist();
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
 		logger.info("Clicked successfully on Hirist Button"); 
 		try {
 			Thread.sleep(5000);

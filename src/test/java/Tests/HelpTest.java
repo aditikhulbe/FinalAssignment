@@ -21,8 +21,22 @@ public class HelpTest extends BaseTest {
 			// calling methods from HelpPage
 			HelpPage help = new HelpPage(driver);
 			help.ClickOnHelp();
+			
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 			logger.info("Clicked successfully on Help Button"); 
 			help.changeWindow();
+			
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 			
 			// validating the title of the page
 			assertTrue(driver.getTitle().contains("red:Care"));

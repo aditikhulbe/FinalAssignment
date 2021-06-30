@@ -3,17 +3,17 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test name="Default test(failed)">
     <classes>
-      <class name="Tests.FAQtest">
+      <class name="Tests.CareerTest">
         <methods>
-          <include name="FAQpageFunctionality"/>
           <include name="openBrowser"/>
           <include name="attachScreenshot"/>
           <include name="setExtent"/>
           <include name="intializeWebdriver"/>
+          <include name="CareersPageFunctionality"/>
           <include name="closeBrowser"/>
           <include name="endReport"/>
         </methods>
-      </class> <!-- Tests.FAQtest -->
+      </class> <!-- Tests.CareerTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

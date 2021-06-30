@@ -26,10 +26,10 @@ public class SocialMediaTest extends BaseTest {
 			e.printStackTrace();
 		}
 
-		// creating an object for the methods of offers Page
+		// creating an object for the methods of Social Media Page
 		SocialMediaPage media = new SocialMediaPage (driver);
 		
-		//calling methods from offers Page
+		//calling methods from Social Media Page
 		media.ClickOnFacebook();
 		
 		logger.info("Clicked successfully on Facebook Button");
@@ -70,8 +70,15 @@ public class SocialMediaTest extends BaseTest {
 		// creating an object for the methods of offers Page
 		SocialMediaPage media = new SocialMediaPage (driver);
 		
-		//calling methods from offers Page
+		//calling methods from Social Media Page
 		media.ClickOnTwitter();
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
 		  logger.info("Successfully clicked on Twitter button");
 		media.changeWindow();
 		try {
@@ -86,6 +93,7 @@ public class SocialMediaTest extends BaseTest {
 		  logger.info("Validated the page title successfully");
 		// closing the new Window
 	  media.closeWindow();
+	 
 
 	  
 	  logger.info("Test Case- checking functionality of Social Media 2 Passed");

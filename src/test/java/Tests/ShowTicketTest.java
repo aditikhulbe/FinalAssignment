@@ -36,14 +36,59 @@ public class ShowTicketTest extends BaseTest {
 			
 			//calling methods from ShowTicketPage
 			showticket.ManageBookingiconClick();
+			
+
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+			
 			logger.info("Clicked successfully on Manage Booking Button");
 			showticket.ShowTicket();
+			
+
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+			
 			logger.info("Clicked successfully on Show Ticket Button");
 			showticket.EnterTicketNo(testData.get("TicketNo"));
+			
+
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+			
 			logger.info("Entered the Ticket number");
 			showticket.EnterEmailId(testData.get("Email"));
+			
+
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+			
 			logger.info("Entered the Email");
 			showticket.ClickSubmit();
+			
+
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+			
 			logger.info("Clicked successfully on Submit Button");
 			logger.info("Test Case- Checking functionality of Show Ticket Page Passed");
 		

@@ -1,4 +1,0 @@
-2021-06-29 15:21:58,120  INFO [main] BaseTest:35 - Clicked on Sign In Icon
-2021-06-29 15:21:58,506  INFO [main] BaseTest:37 - Clicked on Sign In Button
-2021-06-29 15:21:59,896  INFO [main] BaseTest:39 - Entered an invalid mobile number
-2021-06-29 15:22:04,902  INFO [main] BaseTest:46 - Test Case- Checking Login Page functionality Passed
