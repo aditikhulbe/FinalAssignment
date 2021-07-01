@@ -5,7 +5,7 @@
 		<classes>
 		
 			<class name="Tests.LoginTest" /> 
-			<class name="Tests.HelpTest" />
+			<!-- <class name="Tests.HelpTest" />
 			<class name="Tests.AboutUsTest" />
 			<class name="Tests.BlogTest" />
 			<class name="Tests.ShowTicketTest" />
@@ -19,7 +19,7 @@
         	<class name="Tests.SMSlinkTest" />
 			<class name="Tests.SocialMediaTest" />
 			<class name="Tests.userAgreementTest" /> 
-			<class name="Tests.ValuesTest" />
+			<class name="Tests.ValuesTest" /> -->
 
 		</classes>
 
