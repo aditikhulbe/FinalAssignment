@@ -21,7 +21,9 @@ public class BusHirePage {
 	}
 
 	 
-
+        //locators
+	
+	//locator for Bus Hire button
 	    @FindBy(how = How.ID, using = "redBus Bus Hire")
 	    private WebElement busHireLink;
 
@@ -31,27 +33,27 @@ public class BusHirePage {
 	    private WebElement frameWindow;
 
 	 
-
+     //locator for Outstation button
 	    @FindBy(how = How.XPATH, using = "//*[text() = 'Outstation']")
 	    private WebElement outStationMenu;
 
 	 
-
+   
 	    @FindBy(how = How.XPATH, using = "//*[@class='slider round']")
 	    private WebElement sliderRound;
 
 	 
-
+      //locator for pick up Input textbox
 	    @FindBy(how = How.ID, using = "locationTextFieldLocal")
 	    private WebElement pickUpInput;
 
 	 
-
+      //locator for Destination Input textbox
 	    @FindBy(how = How.ID, using = "local_dest_name")
 	    private WebElement destinationInput;
 
 	 
-
+       //locator for adding From date and time
 	    @FindBy(how = How.XPATH, using = "//*[@id='from_datepicker']/div/div/input")
 	    private WebElement fromDateAndTimeForOutstation;
 

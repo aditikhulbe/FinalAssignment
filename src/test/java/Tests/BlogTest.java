@@ -77,6 +77,12 @@ public class BlogTest extends BaseTest {
 			
 			blog.ClickOnSearch(testData.get("TypeInSearch"));
 			
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
 			
 			//to enter the value in Search box
 			driver.findElement(By.xpath("//body/div[@id='page']/div[@id='content']/div[1]/aside[1]/section[1]/form[1]/label[1]/input[1]")).sendKeys(Keys.ENTER); 

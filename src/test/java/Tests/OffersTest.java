@@ -43,8 +43,14 @@ public class OffersTest extends BaseTest {
 			
 			logger.info("Clicked successfully on Offers Button"); 
 			offer.changeWindow();
-			driver.manage().timeouts().implicitlyWait(500, TimeUnit.SECONDS);
-
+			
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 			// validating the title of the page
 			assertTrue(driver.getTitle().contains("Offers"));
 			logger.info("Successfully validated the title of the Page"); 

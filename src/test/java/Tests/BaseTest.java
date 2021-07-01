@@ -34,6 +34,7 @@ import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+
 public class BaseTest {
 
 	// initializing the driver
@@ -42,6 +43,7 @@ public class BaseTest {
 	public static Logger logger = Logger.getLogger(BaseTest.class); // defining logger
 	public static String LOG_FILE = ".\\Resources\\log4j.properties"; // location of the log file
 	static FileInputStream logfile = null;
+	public static RemoteWebDriver remotedriver;
 
 	public static ExtentReports extent;
 	public static ExtentTest extentTest;
@@ -79,6 +81,12 @@ public class BaseTest {
 		}
 	}
 
+	
+	
+	
+	
+
+	
 	@BeforeSuite
 	public void setExtent() {
 		extent = new ExtentReports(".\\Reports\\ExtentReport.html");
@@ -109,8 +117,11 @@ public class BaseTest {
 	@SuppressWarnings("deprecation")
 	@BeforeMethod
 	public static void intializeWebdriver() throws MalformedURLException {
+		
+
+		
+		
 		String type = prop.getProperty("BrowserType");
-		type = type.toLowerCase();
 		switch (type) {
 		case "chrome":
 			System.setProperty("webdriver.chrome.driver", ".\\Drivers\\chromedriver.exe");
@@ -139,15 +150,56 @@ public class BaseTest {
 			 driver = new InternetExplorerDriver();
 			 driver.manage().window().maximize();
 			 
-			 
+		
+			
 		}
+	
+	
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); // IMPLICIT WAIT
 	}
+	
+	
+	
+	
+	//DOCKER
+	
 
+	public static 	RemoteWebDriver runInDocker() throws MalformedURLException {
+		
+	
+		
+        final ChromeOptions options = new ChromeOptions();
+	    options.addArguments("--disable-gpu");
+	    options.addArguments("--disable-dev-shm-usage");
+	    options.addArguments("--no-sandbox");
+	    options.addArguments("--allow-insecure-localhost");
+	    options.addArguments("window-size=1920,1080");
+	    options.addArguments("user-agent=Chrome/91.0.4472.124");
+	    URL url = new URL("http://localhost:4449/wd/hub");
+	    remotedriver = new RemoteWebDriver(url,options);
+	    remotedriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		return remotedriver;
+	
+}
+	{
+		
+	try {
+		driver = runInDocker();
+	} catch (MalformedURLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	driver.get(prop.getProperty("url"));
+	
+}
+	
+	
 	@BeforeMethod // method to open the url
 	public static void openBrowser() {
 		driver.get(prop.getProperty("url"));
+		
+	
 	}
 
 	@AfterMethod // method to close the browser
