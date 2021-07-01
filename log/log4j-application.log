@@ -1,3 +1,3 @@
-2021-07-01 16:48:07,752  INFO [main] BaseTest:37 - Clicked successfully on Values Button
-2021-07-01 16:48:12,817  INFO [main] BaseTest:48 - Successfully validated the title of the Page
-2021-07-01 16:48:17,870  INFO [main] BaseTest:62 - test Case- Checking functionality of Values Page Passed
+2021-07-01 17:05:38,974  INFO [main] BaseTest:44 - Clicked successfully on Offers Button
+2021-07-01 17:05:41,075  INFO [main] BaseTest:56 - Successfully validated the title of the Page
+2021-07-01 17:05:41,098  INFO [main] BaseTest:60 - test Case- Checking functionality of Offers Page Passed
