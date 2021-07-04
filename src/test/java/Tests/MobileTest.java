@@ -43,7 +43,7 @@ public class MobileTest extends BaseTest {
 		// creating an object for the methods of Mobile Page
 		MobilePage mobile = new MobilePage(driver);
 
-		// calling methods from offers Page
+		// calling methods from mobile Page
 		mobile.ClickOnMobile();
 		
 		logger.info("Clicked successfully on Mobile Button"); 

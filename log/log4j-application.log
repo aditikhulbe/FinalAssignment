@@ -1,3 +1,4 @@
-2021-07-01 17:05:38,974  INFO [main] BaseTest:44 - Clicked successfully on Offers Button
-2021-07-01 17:05:41,075  INFO [main] BaseTest:56 - Successfully validated the title of the Page
-2021-07-01 17:05:41,098  INFO [main] BaseTest:60 - test Case- Checking functionality of Offers Page Passed
+2021-07-04 21:28:29,485  INFO [main] BaseTest:49 - Clicked successfully on Mobile Button
+2021-07-04 21:28:30,710  INFO [main] BaseTest:61 - Entered Mobile Number
+2021-07-04 21:28:31,803  INFO [main] BaseTest:71 - Clicked on Send SMS
+2021-07-04 21:28:32,832  INFO [main] BaseTest:82 - test Case- Checking functionality of Mobile Test Page Passed

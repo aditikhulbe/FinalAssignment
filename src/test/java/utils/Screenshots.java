@@ -10,7 +10,10 @@ import org.openqa.selenium.WebDriver;
 
 public class Screenshots {
 
+	//method for taking screenshot in case of failure
 	public static String takeScreenShot(WebDriver driver, String testCaseName) {
+		
+		//format of the screenshot file
 		String screenshotFileName = System.getProperty("user.dir") + "/FailedScreenshots/" + testCaseName + ".jpg";
 
 		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);

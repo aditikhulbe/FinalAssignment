@@ -44,7 +44,7 @@ public class LoginPage {
 
 
     
- 
+ //method for changing the frame
     
     public void enterMobileNumber(String mobile) {
     	  driver.switchTo().frame(driver.findElement(By.className("modalIframe")));

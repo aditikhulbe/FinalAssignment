@@ -5,12 +5,10 @@ import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -23,7 +21,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import utils.ExcelFileIO;
-import utils.Screenshots;
+import ScreenshotJar.Screenshots;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -82,9 +80,6 @@ public class BaseTest {
 	}
 
 	
-	
-	
-	
 
 	
 	@BeforeSuite
@@ -99,12 +94,12 @@ public class BaseTest {
 		extent.close();
 	}
 
-	@AfterMethod
+	@AfterMethod //method to attach screenshot in case of failure
 	public void attachScreenshot(ITestResult result) {
 
 		if (result.getStatus() == ITestResult.FAILURE) {
 
-			String screenshotPath = Screenshots.takeScreenShot(driver, result.getName());
+			String screenshotPath = Screenshots.takeScreenshot(driver, result.getName());
 			System.out.println(screenshotPath);
 			extentTest.log(LogStatus.FAIL, extentTest.addScreenCapture(screenshotPath));
 
@@ -114,12 +109,9 @@ public class BaseTest {
 		extent.endTest(extentTest);
 	}
 
-	@SuppressWarnings("deprecation")
-	@BeforeMethod
-	public static void intializeWebdriver() throws MalformedURLException {
-		
 
-		
+	@BeforeMethod //method for initializing the browsers
+	public static void intializeWebdriver() throws MalformedURLException {
 		
 		String type = prop.getProperty("BrowserType");
 		switch (type) {
@@ -150,51 +142,45 @@ public class BaseTest {
 			 driver = new InternetExplorerDriver();
 			 driver.manage().window().maximize();
 			 
-		
-			
+		case "docker":
+			driver = runInDocker(); //calling the method to run in Docker
+			driver.get(prop.getProperty("url"));
+				
 		}
 	
 	
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); // IMPLICIT WAIT
 	}
-	
-	
-	
-	
-	//DOCKER
-	
 
-	public static 	RemoteWebDriver runInDocker() throws MalformedURLException {
+//method for implementing docker
+	private static WebDriver runInDocker() throws MalformedURLException {
+		 final ChromeOptions options = new ChromeOptions();
+		    options.addArguments("--disable-gpu");
+		    options.addArguments("--disable-dev-shm-usage");
+		    options.addArguments("--no-sandbox");
+		    options.addArguments("--allow-insecure-localhost");
+		    options.addArguments("window-size=1920,1080");
+		    options.addArguments("user-agent=Chrome/91.0.4472.124");
+		    URL url = new URL("http://localhost:4449/wd/hub");
+		    remotedriver = new RemoteWebDriver(url,options);
+		    remotedriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			return remotedriver;
 		
-	
-		
-        final ChromeOptions options = new ChromeOptions();
-	    options.addArguments("--disable-gpu");
-	    options.addArguments("--disable-dev-shm-usage");
-	    options.addArguments("--no-sandbox");
-	    options.addArguments("--allow-insecure-localhost");
-	    options.addArguments("window-size=1920,1080");
-	    options.addArguments("user-agent=Chrome/91.0.4472.124");
-	    URL url = new URL("http://localhost:4449/wd/hub");
-	    remotedriver = new RemoteWebDriver(url,options);
-	    remotedriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		return remotedriver;
-	
-}
-	{
-		
-	try {
-		driver = runInDocker();
-	} catch (MalformedURLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
 	}
-	driver.get(prop.getProperty("url"));
-	
-}
-	
-	
+		{
+			
+		try {
+			driver = runInDocker();
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		driver.get(prop.getProperty("url"));
+		
+		//return null;
+	}
+
 	@BeforeMethod // method to open the url
 	public static void openBrowser() {
 		driver.get(prop.getProperty("url"));

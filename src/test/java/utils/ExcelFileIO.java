@@ -14,7 +14,7 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-// includes read and write operation for excel file
+//read and write operations for excel file
 
 @SuppressWarnings("deprecation")
 public class ExcelFileIO {
@@ -40,6 +40,7 @@ public class ExcelFileIO {
 			e.printStackTrace();
 		}
 	}
+	
 	// returns the row count in a sheet
 
 	public int getRowCount(String sheetName) {
@@ -55,6 +56,7 @@ public class ExcelFileIO {
 	}
 
 	// returns the data from a cell
+	
 	@SuppressWarnings({ "static-access" })
 	public String getCellData(String sheetName, String colName, int rowNum) {
 		try {
@@ -85,19 +87,15 @@ public class ExcelFileIO {
 			if (cell == null)
 				return "";
 
-			//System.out.println(cell.getCellType().name());
-			//
 			if (cell.getCellType().name().equals("STRING"))
 				return cell.getStringCellValue();
 
-			// if (cell.getCellType().STRING != null)
 
-			// if(cell.getCellType()==Xls_Reader.CELL_TYPE_STRING)
-			// return cell.getStringCellValue();
 			else if ((cell.getCellType().name().equals("NUMERIC")) || (cell.getCellType().name().equals("FORMULA"))) {
 
 				String cellText = String.valueOf(cell.getNumericCellValue());
 				if (HSSFDateUtil.isCellDateFormatted(cell)) {
+					
 					// format in form of M/D/YY
 					double d = cell.getNumericCellValue();
 
@@ -106,7 +104,6 @@ public class ExcelFileIO {
 					cellText = (String.valueOf(cal.get(Calendar.YEAR))).substring(2);
 					cellText = cal.get(Calendar.DAY_OF_MONTH) + "/" + cal.get(Calendar.MONTH) + 1 + "/" + cellText;
 
-					// System.out.println(cellText);
 
 				}
 
@@ -160,7 +157,6 @@ public class ExcelFileIO {
 					cellText = (String.valueOf(cal.get(Calendar.YEAR))).substring(2);
 					cellText = cal.get(Calendar.MONTH) + 1 + "/" + cal.get(Calendar.DAY_OF_MONTH) + "/" + cellText;
 
-					// System.out.println(cellText);
 
 				}
 
@@ -194,7 +190,7 @@ public class ExcelFileIO {
 
 			row = sheet.getRow(0);
 			for (int i = 0; i < row.getLastCellNum(); i++) {
-				// System.out.println(row.getCell(i).getStringCellValue().trim());
+				
 				if (row.getCell(i).getStringCellValue().trim().equals(colName))
 					colNum = i;
 			}
@@ -241,8 +237,7 @@ public class ExcelFileIO {
 		return true;
 	}
 
-	// returns true if sheet is removed successfully else false if sheet does
-	// not exist
+	// returns true if sheet is removed successfully else false if sheet does not exist
 	public boolean removeSheet(String sheetName) {
 		int index = workbook.getSheetIndex(sheetName);
 		if (index == -1)
@@ -309,9 +304,7 @@ public class ExcelFileIO {
 			workbook = new XSSFWorkbook(fis);
 			sheet = workbook.getSheet(sheetName);
 			XSSFCellStyle style = workbook.createCellStyle();
-			// style.setFillForegroundColor(HSSFColor.GREY_40_PERCENT.index);
 			XSSFCreationHelper createHelper = workbook.getCreationHelper();
-			// style.setFillPattern(XSSFCellStyle.NO_FILL);
 			for (int i = 0; i < getRowCount(sheetName); i++) {
 				row = sheet.getRow(i);
 				if (row != null) {
@@ -333,7 +326,7 @@ public class ExcelFileIO {
 
 	}
 
-	// find whether sheets exists
+	// find whether sheets exist
 	public boolean isSheetExist(String sheetName) {
 		int index = workbook.getSheetIndex(sheetName);
 		if (index == -1) {
@@ -378,8 +371,6 @@ public class ExcelFileIO {
 	public HashMap<String, String> getRowTestData(String worksheetName, String testName) {
 
 		HashMap<String, String> testData = new HashMap<String, String>();
-		
-		//sheet = workbook.getSheet(worksheetName);
 		
 				
 		for (int i = 2; i <= getRowCount(worksheetName); i++) {

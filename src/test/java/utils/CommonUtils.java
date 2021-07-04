@@ -6,7 +6,7 @@ import Tests.BaseTest;
 
 public class CommonUtils extends BaseTest {
 
-	 // function toCheckExecutionRequired
+	 // function to Check Execution Required
     public static void toCheckExecutionRequired(String executionRequired) {
         
         // if execution required field is no

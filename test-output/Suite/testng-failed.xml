@@ -1,41 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test name="Test(failed)">
+<suite parallel="classes" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test parallel="classes" name="Test(failed)">
     <classes>
-      <class name="Tests.LoginTest">
-        <methods>
-          <include name="openBrowser"/>
-          <include name="attachScreenshot"/>
-          <include name="invalidLogin"/>
-          <include name="setExtent"/>
-          <include name="intializeWebdriver"/>
-          <include name="closeBrowser"/>
-          <include name="endReport"/>
-        </methods>
-      </class> <!-- Tests.LoginTest -->
-      <class name="Tests.MakeMyTripTest">
-        <methods>
-          <include name="openBrowser"/>
-          <include name="attachScreenshot"/>
-          <include name="MakeMyTripPageFunctionality"/>
-          <include name="setExtent"/>
-          <include name="intializeWebdriver"/>
-          <include name="closeBrowser"/>
-          <include name="endReport"/>
-        </methods>
-      </class> <!-- Tests.MakeMyTripTest -->
-      <class name="Tests.ShowTicketTest">
-        <methods>
-          <include name="ShowMyTicket"/>
-          <include name="openBrowser"/>
-          <include name="attachScreenshot"/>
-          <include name="setExtent"/>
-          <include name="intializeWebdriver"/>
-          <include name="closeBrowser"/>
-          <include name="endReport"/>
-        </methods>
-      </class> <!-- Tests.ShowTicketTest -->
       <class name="Tests.HelpTest">
         <methods>
           <include name="openBrowser"/>
@@ -47,28 +14,17 @@
           <include name="endReport"/>
         </methods>
       </class> <!-- Tests.HelpTest -->
-      <class name="Tests.AgentRegistrationTest">
+      <class name="Tests.LoginTest">
         <methods>
           <include name="openBrowser"/>
           <include name="attachScreenshot"/>
-          <include name="setExtent"/>
-          <include name="intializeWebdriver"/>
-          <include name="RegAgentFunctionality"/>
-          <include name="closeBrowser"/>
-          <include name="endReport"/>
-        </methods>
-      </class> <!-- Tests.AgentRegistrationTest -->
-      <class name="Tests.CancelTicketTest">
-        <methods>
-          <include name="openBrowser"/>
-          <include name="attachScreenshot"/>
-          <include name="CancelTicket"/>
+          <include name="invalidLogin"/>
           <include name="setExtent"/>
           <include name="intializeWebdriver"/>
           <include name="closeBrowser"/>
           <include name="endReport"/>
         </methods>
-      </class> <!-- Tests.CancelTicketTest -->
+      </class> <!-- Tests.LoginTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

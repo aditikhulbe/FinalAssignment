@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test name="Default test(failed)">
+<suite parallel="classes" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test parallel="classes" name="Test(failed)">
     <classes>
-      <class name="Tests.OffersTest">
+      <class name="Tests.HelpTest">
         <methods>
           <include name="openBrowser"/>
           <include name="attachScreenshot"/>
           <include name="setExtent"/>
           <include name="intializeWebdriver"/>
-          <include name="OffersPageFunctionality"/>
+          <include name="closeBrowser"/>
+          <include name="HelpPageFunctionality"/>
+          <include name="endReport"/>
+        </methods>
+      </class> <!-- Tests.HelpTest -->
+      <class name="Tests.LoginTest">
+        <methods>
+          <include name="openBrowser"/>
+          <include name="attachScreenshot"/>
+          <include name="invalidLogin"/>
+          <include name="setExtent"/>
+          <include name="intializeWebdriver"/>
           <include name="closeBrowser"/>
           <include name="endReport"/>
         </methods>
-      </class> <!-- Tests.OffersTest -->
+      </class> <!-- Tests.LoginTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
