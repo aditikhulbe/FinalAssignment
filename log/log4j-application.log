@@ -1,4 +1,6 @@
-2021-07-04 21:28:29,485  INFO [main] BaseTest:49 - Clicked successfully on Mobile Button
-2021-07-04 21:28:30,710  INFO [main] BaseTest:61 - Entered Mobile Number
-2021-07-04 21:28:31,803  INFO [main] BaseTest:71 - Clicked on Send SMS
-2021-07-04 21:28:32,832  INFO [main] BaseTest:82 - test Case- Checking functionality of Mobile Test Page Passed
+2021-07-05 15:51:09,138  INFO [main] BaseTest:107 - Chrome driver initiated in head mode
+2021-07-05 15:51:12,134  INFO [main] BaseTest:142 - https://www.redbus.in/ website opened
+2021-07-05 15:51:17,285  INFO [main] BaseTest:36 - Successfully clicked on Sitemap Button
+2021-07-05 15:51:19,294  INFO [main] BaseTest:47 - Validated the page title successfully
+2021-07-05 15:51:19,387  INFO [main] BaseTest:50 - Test Case- checking functionality of Sitemap Page Passed
+2021-07-05 15:51:19,397  INFO [main] BaseTest:173 - Browser is closed

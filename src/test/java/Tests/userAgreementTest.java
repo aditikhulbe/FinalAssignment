@@ -30,7 +30,7 @@ public class userAgreementTest extends BaseTest {
 				// creating an object for the methods of user Agreement Page
 				UserAgreementPage agree = new UserAgreementPage(driver);
 
-				// calling methods from offers Page
+				// calling methods from user Agreement Page
 				agree.ClickOnUserAgreement();
 				  logger.info("Successfully clicked on User Agreement Button");
 				agree.changeWindow();

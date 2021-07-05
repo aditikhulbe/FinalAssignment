@@ -1,14 +1,19 @@
 package Tests;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -20,37 +25,24 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-import utils.ExcelFileIO;
 import ScreenshotJar.Screenshots;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Properties;
-import java.util.concurrent.TimeUnit;
-
-
+import utils.BrowserUtils;
+import utils.ExcelFileIO;
 public class BaseTest {
 
 	// initializing the driver
-	static WebDriver driver;
-
-	public static Logger logger = Logger.getLogger(BaseTest.class); // defining logger
-	public static String LOG_FILE = ".\\Resources\\log4j.properties"; // location of the log file
-	static FileInputStream logfile = null;
+	protected static WebDriver driver;	
+	// defining logger
+	public static Logger logger = Logger.getLogger(BaseTest.class);	
 	public static RemoteWebDriver remotedriver;
-
+	public static String LOG_FILE = ".\\Resources\\log4j.properties"; //defining location of log4j file
+	static FileInputStream logfile = null;
+	static File file = new File(".\\Resources\\config.properties"); //defining location of config.properties file
+	static FileInputStream fis = null;
+	protected static Properties prop = new Properties();
+	public static ExcelFileIO reader = null;
 	public static ExtentReports extent;
 	public static ExtentTest extentTest;
-
-	static File file = new File(".\\Resources\\config.properties");
-	static FileInputStream fis = null;
-	static Properties prop = new Properties();
-
-	public static ExcelFileIO reader = null;
 
 	static {
 		try {
@@ -79,13 +71,10 @@ public class BaseTest {
 		}
 	}
 
-	
-
-	
 	@BeforeSuite
-	public void setExtent() {
+	public static void setExtent() {
+
 		extent = new ExtentReports(".\\Reports\\ExtentReport.html");
-		extent.addSystemInfo("UserNameAutomation", "Aditi");
 	}
 
 	@AfterSuite
@@ -95,103 +84,93 @@ public class BaseTest {
 	}
 
 	@AfterMethod //method to attach screenshot in case of failure
-	public void attachScreenshot(ITestResult result) {
-
+	public void attachScreenshots(ITestResult result) {
 		if (result.getStatus() == ITestResult.FAILURE) {
-
 			String screenshotPath = Screenshots.takeScreenshot(driver, result.getName());
-			System.out.println(screenshotPath);
 			extentTest.log(LogStatus.FAIL, extentTest.addScreenCapture(screenshotPath));
-
 		} else if (result.getStatus() == ITestResult.SUCCESS) {
-			extentTest.log(LogStatus.PASS, "Test case passed successfully");
+			extentTest.log(LogStatus.PASS, "Passed successfully");
 		}
 		extent.endTest(extentTest);
 	}
-
 
 	@BeforeMethod //method for initializing the browsers
-	public static void intializeWebdriver() throws MalformedURLException {
-		
-		String type = prop.getProperty("BrowserType");
-		switch (type) {
-		case "chrome":
-			System.setProperty("webdriver.chrome.driver", ".\\Drivers\\chromedriver.exe");
-			ChromeOptions chromeoption = new ChromeOptions();
-			chromeoption.setHeadless(false); // headless mode option..change to true for headless
-            chromeoption.addArguments("--disable-gpu");
-            chromeoption.addArguments("--disable-dev-shm-usage");
-            chromeoption.addArguments("--no-sandbox");
-            chromeoption.addArguments("--allow-insecure-localhost");
-            chromeoption.addArguments("user-agent=Chrome/91.0.4472.124");
-            chromeoption.addArguments("window-size=1920,1080");
-            driver = new ChromeDriver(chromeoption); // driver to open Chrome
-			driver.manage().window().maximize();
-			break;
-		case "firefox":
-			System.setProperty("webdriver.gecko.driver", ".\\Drivers\\geckodriver.exe");
-			FirefoxOptions foxoption = new FirefoxOptions();
-			foxoption.setHeadless(false);// headless mode option..change to true for headless
-			driver = new FirefoxDriver(foxoption); // driver to open firefox
-			break;
-		case "internetexplorer":
-			 //driver to open Internet Explorer
-			 System.setProperty("webdriver.ie.driver",".\\Drivers\\IEDriverServer.exe");
-			 InternetExplorerOptions ie = new InternetExplorerOptions();  
-			 ie.ignoreZoomSettings(); 
-			 driver = new InternetExplorerDriver();
-			 driver.manage().window().maximize();
-			 
-	/*	case "docker":
-			driver = runInDocker(); //calling the method to run in Docker
-			driver.get(prop.getProperty("url"));*/
-				
+	public void initializeBrowser() throws MalformedURLException, InterruptedException {
+		String browser = prop.getProperty("browser").toLowerCase();
+		boolean headlessMode = Boolean.parseBoolean(prop.getProperty("headlessMode"));
+		boolean runOnDocker = Boolean.parseBoolean(prop.getProperty("runOnDocker"));
+		if (runOnDocker) {
+
+			if (headlessMode) {
+
+				driver = BrowserUtils.openBrowserInHeadlessInDocker(browser);
+			} else {
+
+				driver = BrowserUtils.openBrowserInNonHeadlessInDocker(browser);
+			}
+		} else {
+
+			if (headlessMode) {
+				System.out.println(" running in headless mode ");
+
+				driver = BrowserUtils.openBrowserInHeadlessInLocal(browser);
+			} else {
+				System.out.println("Starting browser:running non headless");
+
+				driver = BrowserUtils.openBrowserInNonHeadlessInLocal(browser);
+			}
 		}
-	
-	
-
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); // IMPLICIT WAIT
 	}
 
-//method for implementing docker
-	/*private static WebDriver runInDocker() throws MalformedURLException {
-		 final ChromeOptions options = new ChromeOptions();
-		    options.addArguments("--disable-gpu");
-		    options.addArguments("--disable-dev-shm-usage");
-		    options.addArguments("--no-sandbox");
-		    options.addArguments("--allow-insecure-localhost");
-		    options.addArguments("window-size=1920,1080");
-		    options.addArguments("user-agent=Chrome/91.0.4472.124");
-		    URL url = new URL("http://localhost:4449/wd/hub");
-		    remotedriver = new RemoteWebDriver(url,options);
-		    remotedriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-			return remotedriver;
-		
-	}
-		{
-			
-		try {
-			driver = runInDocker();
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	@BeforeMethod(dependsOnMethods = "initializeBrowser") // method to open the browser
+	public void setUp() {
+
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+
+		if (!prop.getProperty("browser").equals("firefox")) {
+
+			driver.manage().timeouts().implicitlyWait(Integer.parseInt(prop.getProperty("globalWait")),
+					TimeUnit.SECONDS);
+
 		}
-		driver.get(prop.getProperty("url"));
-		
-		//return null;
-	}*/
 
-	@BeforeMethod // method to open the url
-	public static void openBrowser() {
-		driver.get(prop.getProperty("url"));
-		
-	
+		// implicit wait will be for all elements
+
+		driver.get(prop.getProperty("testUrl"));
+
+		logger.info(prop.getProperty("testUrl") + " website opened");
 	}
 
-	@AfterMethod // method to close the browser
-	public static void closeBrowser() {
+	public static RemoteWebDriver runInDocker() throws MalformedURLException {
+		final ChromeOptions options = new ChromeOptions();
+		options.addArguments("--disable-gpu");
+		options.addArguments("--disable-dev-shm-usage");
+		options.addArguments("--no-sandbox");
+		options.addArguments("--allow-insecure-localhost");
+		options.addArguments("window-size=1920,1080");
+		options.addArguments("user-agent=Chrome/91.0.4472.124");
+		URL url = new URL("http://localhost:4449/wd/hub");
+		remotedriver = new RemoteWebDriver(url, options);
+		remotedriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		return remotedriver;
+	}
+
+	public static WebDriver runInHeadless() {
+		ChromeOptions chromeOptions = null;
+		System.setProperty("webdriver.chrome.driver", "Drivers/chromedriver.exe");
+		chromeOptions = new ChromeOptions();
+		chromeOptions.addArguments("headless");
+		chromeOptions.addArguments("window-size=1920,1080");
+		chromeOptions.addArguments("user-agent=Chrome/91.0.4472.124");
+		driver = new ChromeDriver(chromeOptions);
+		return driver;
+	}
+
+	@AfterMethod// method to close the browser
+	public void closeBrowser() {
 		extent.endTest(extentTest);
-		driver.close();
+		logger.info("Browser is closed");
+		driver.quit();
 	}
-
 }

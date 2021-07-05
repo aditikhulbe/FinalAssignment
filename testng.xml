@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">  
+<suite name="Suite" >    <!-- add parallel="classes" for running in parallel through docker -->
 	<test thread-count="5" name="Test">
 		<classes>
-		
-			<class name="Tests.LoginTest" /> 
-		    <class name="Tests.HelpTest" />
-		    <class name="Tests.AboutUsTest" />
+ 
+			<class name="Tests.LoginTest" />
+			<class name="Tests.HelpTest" />
+			<class name="Tests.AboutUsTest" />
 			<class name="Tests.BlogTest" />
 			<class name="Tests.ShowTicketTest" />
 			<class name="Tests.CancelTicketTest" />
 			<class name="Tests.CareerTest" />
 			<class name="Tests.FAQtest" />
 			<class name="Tests.SearchBusTest" />
-		    <class name="Tests.MobileTest" />
+			<class name="Tests.MobileTest" />
 			<class name="Tests.OffersTest" />
 			<class name="Tests.RpoolTest" />
-        	<class name="Tests.SMSlinkTest" />
+			<class name="Tests.SMSlinkTest" />
 			<class name="Tests.SocialMediaTest" />
-			<class name="Tests.userAgreementTest" /> 
-			<class name="Tests.ValuesTest" />    
+			<class name="Tests.userAgreementTest" />
+			<class name="Tests.ValuesTest" />
+			<class name="Tests.SafetyTest" />
+			<class name="Tests.AwardTest" />
+			<class name="Tests.SitemapTest" />
 
 		</classes>
 
