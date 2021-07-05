@@ -142,9 +142,9 @@ public class BaseTest {
 			 driver = new InternetExplorerDriver();
 			 driver.manage().window().maximize();
 			 
-		case "docker":
+	/*	case "docker":
 			driver = runInDocker(); //calling the method to run in Docker
-			driver.get(prop.getProperty("url"));
+			driver.get(prop.getProperty("url"));*/
 				
 		}
 	
@@ -154,7 +154,7 @@ public class BaseTest {
 	}
 
 //method for implementing docker
-	private static WebDriver runInDocker() throws MalformedURLException {
+	/*private static WebDriver runInDocker() throws MalformedURLException {
 		 final ChromeOptions options = new ChromeOptions();
 		    options.addArguments("--disable-gpu");
 		    options.addArguments("--disable-dev-shm-usage");
@@ -179,7 +179,7 @@ public class BaseTest {
 		driver.get(prop.getProperty("url"));
 		
 		//return null;
-	}
+	}*/
 
 	@BeforeMethod // method to open the url
 	public static void openBrowser() {
