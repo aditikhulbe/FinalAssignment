@@ -1,6 +1,19 @@
-2021-07-05 15:51:09,138  INFO [main] BaseTest:107 - Chrome driver initiated in head mode
-2021-07-05 15:51:12,134  INFO [main] BaseTest:142 - https://www.redbus.in/ website opened
-2021-07-05 15:51:17,285  INFO [main] BaseTest:36 - Successfully clicked on Sitemap Button
-2021-07-05 15:51:19,294  INFO [main] BaseTest:47 - Validated the page title successfully
-2021-07-05 15:51:19,387  INFO [main] BaseTest:50 - Test Case- checking functionality of Sitemap Page Passed
-2021-07-05 15:51:19,397  INFO [main] BaseTest:173 - Browser is closed
+2021-07-05 17:27:44,910  INFO [main] BaseTest:142 - https://www.redbus.in/ website opened
+2021-07-05 17:27:50,049  INFO [main] BaseTest:43 - Clicked on Sign In Icon
+2021-07-05 17:27:55,146  INFO [main] BaseTest:53 - Clicked on Sign In Button
+2021-07-05 17:28:00,477  INFO [main] BaseTest:64 - Entered an invalid mobile number
+2021-07-05 17:28:05,486  INFO [main] BaseTest:71 - Test Case- Checking Login Page functionality Passed
+2021-07-05 17:28:05,494  INFO [main] BaseTest:173 - Browser is closed
+2021-07-05 17:28:12,406  INFO [main] BaseTest:142 - https://www.redbus.in/ website opened
+2021-07-05 17:28:14,860  INFO [main] BaseTest:32 - Clicked successfully on Help Button
+2021-07-05 17:28:20,096  INFO [main] BaseTest:43 - Successfully validated the title of the page
+2021-07-05 17:28:22,357  INFO [main] BaseTest:59 - Test Case- Checking functionality of Help Page Passed
+2021-07-05 17:28:22,358  INFO [main] BaseTest:173 - Browser is closed
+2021-07-05 17:28:27,192  INFO [main] BaseTest:142 - https://www.redbus.in/ website opened
+2021-07-05 17:28:37,336  INFO [main] BaseTest:44 - Clicked successfully on About Us
+2021-07-05 17:28:42,528  INFO [main] BaseTest:56 - Title of page successfully validated
+2021-07-05 17:28:42,739  INFO [main] BaseTest:58 - Test Case- Functionality of About Us page Passed
+2021-07-05 17:28:42,744  INFO [main] BaseTest:173 - Browser is closed
+2021-07-05 17:28:48,951  INFO [main] BaseTest:142 - https://www.redbus.in/ website opened
+2021-07-05 17:28:59,112  INFO [main] BaseTest:61 - Clicked successfully on Blog Button
+2021-07-05 17:29:04,180  INFO [main] BaseTest:76 - Successfully validated the title of page

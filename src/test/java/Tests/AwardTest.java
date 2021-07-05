@@ -1,12 +1,8 @@
 package Tests;
-
-
-
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 
 import Pages.AwardsPage;
-
 
 public class AwardTest extends BaseTest{
 

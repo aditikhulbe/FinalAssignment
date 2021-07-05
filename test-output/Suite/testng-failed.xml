@@ -1,30 +1,225 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite parallel="classes" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test parallel="classes" name="Test(failed)">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test name="Test(failed)">
     <classes>
+      <class name="Tests.SitemapTest">
+        <methods>
+          <include name="setExtent"/>
+          <include name="setUp"/>
+          <include name="SitemapPageFunctionality"/>
+          <include name="attachScreenshots"/>
+          <include name="initializeBrowser"/>
+          <include name="closeBrowser"/>
+          <include name="endReport"/>
+        </methods>
+      </class> <!-- Tests.SitemapTest -->
+      <class name="Tests.AwardTest">
+        <methods>
+          <include name="setExtent"/>
+          <include name="setUp"/>
+          <include name="AwardPageTest3"/>
+          <include name="attachScreenshots"/>
+          <include name="AwardPageTest2"/>
+          <include name="AwardPageTest"/>
+          <include name="initializeBrowser"/>
+          <include name="closeBrowser"/>
+          <include name="endReport"/>
+        </methods>
+      </class> <!-- Tests.AwardTest -->
+      <class name="Tests.CancelTicketTest">
+        <methods>
+          <include name="CancelTicket"/>
+          <include name="setExtent"/>
+          <include name="setUp"/>
+          <include name="attachScreenshots"/>
+          <include name="initializeBrowser"/>
+          <include name="closeBrowser"/>
+          <include name="endReport"/>
+        </methods>
+      </class> <!-- Tests.CancelTicketTest -->
+      <class name="Tests.SearchBusTest">
+        <methods>
+          <include name="setExtent"/>
+          <include name="setUp"/>
+          <include name="attachScreenshots"/>
+          <include name="initializeBrowser"/>
+          <include name="closeBrowser"/>
+          <include name="searchBus"/>
+          <include name="endReport"/>
+        </methods>
+      </class> <!-- Tests.SearchBusTest -->
+      <class name="Tests.BlogTest">
+        <methods>
+          <include name="setExtent"/>
+          <include name="setUp"/>
+          <include name="attachScreenshots"/>
+          <include name="BlogPageFunctionality"/>
+          <include name="initializeBrowser"/>
+          <include name="closeBrowser"/>
+          <include name="endReport"/>
+        </methods>
+      </class> <!-- Tests.BlogTest -->
+      <class name="Tests.SafetyTest">
+        <methods>
+          <include name="setExtent"/>
+          <include name="setUp"/>
+          <include name="SafetyPageTest"/>
+          <include name="attachScreenshots"/>
+          <include name="initializeBrowser"/>
+          <include name="closeBrowser"/>
+          <include name="endReport"/>
+        </methods>
+      </class> <!-- Tests.SafetyTest -->
+      <class name="Tests.LoginTest">
+        <methods>
+          <include name="invalidLogin"/>
+          <include name="setExtent"/>
+          <include name="setUp"/>
+          <include name="attachScreenshots"/>
+          <include name="initializeBrowser"/>
+          <include name="closeBrowser"/>
+          <include name="endReport"/>
+        </methods>
+      </class> <!-- Tests.LoginTest -->
+      <class name="Tests.userAgreementTest">
+        <methods>
+          <include name="setExtent"/>
+          <include name="setUp"/>
+          <include name="OffersPageFunctionality"/>
+          <include name="attachScreenshots"/>
+          <include name="initializeBrowser"/>
+          <include name="closeBrowser"/>
+          <include name="endReport"/>
+        </methods>
+      </class> <!-- Tests.userAgreementTest -->
+      <class name="Tests.RpoolTest">
+        <methods>
+          <include name="RpoolFunctionality3"/>
+          <include name="setExtent"/>
+          <include name="setUp"/>
+          <include name="RpoolFunctionality2"/>
+          <include name="RpoolFunctionality4"/>
+          <include name="attachScreenshots"/>
+          <include name="initializeBrowser"/>
+          <include name="closeBrowser"/>
+          <include name="RpoolFunctionality"/>
+          <include name="RpoolFunctionality5"/>
+          <include name="endReport"/>
+        </methods>
+      </class> <!-- Tests.RpoolTest -->
+      <class name="Tests.AboutUsTest">
+        <methods>
+          <include name="setExtent"/>
+          <include name="setUp"/>
+          <include name="AboutUsFunctionality"/>
+          <include name="attachScreenshots"/>
+          <include name="initializeBrowser"/>
+          <include name="closeBrowser"/>
+          <include name="endReport"/>
+        </methods>
+      </class> <!-- Tests.AboutUsTest -->
+      <class name="Tests.OffersTest">
+        <methods>
+          <include name="setExtent"/>
+          <include name="setUp"/>
+          <include name="attachScreenshots"/>
+          <include name="OffersPageFunctionality"/>
+          <include name="initializeBrowser"/>
+          <include name="closeBrowser"/>
+          <include name="endReport"/>
+        </methods>
+      </class> <!-- Tests.OffersTest -->
+      <class name="Tests.FAQtest">
+        <methods>
+          <include name="FAQpageFunctionality"/>
+          <include name="setExtent"/>
+          <include name="setUp"/>
+          <include name="attachScreenshots"/>
+          <include name="initializeBrowser"/>
+          <include name="closeBrowser"/>
+          <include name="endReport"/>
+        </methods>
+      </class> <!-- Tests.FAQtest -->
+      <class name="Tests.ShowTicketTest">
+        <methods>
+          <include name="ShowMyTicket"/>
+          <include name="setExtent"/>
+          <include name="setUp"/>
+          <include name="attachScreenshots"/>
+          <include name="initializeBrowser"/>
+          <include name="closeBrowser"/>
+          <include name="endReport"/>
+        </methods>
+      </class> <!-- Tests.ShowTicketTest -->
+      <class name="Tests.SMSlinkTest">
+        <methods>
+          <include name="SMSfunctionalityValid"/>
+          <include name="SMSfunctionalityInvalid"/>
+          <include name="setExtent"/>
+          <include name="setUp"/>
+          <include name="attachScreenshots"/>
+          <include name="initializeBrowser"/>
+          <include name="closeBrowser"/>
+          <include name="endReport"/>
+        </methods>
+      </class> <!-- Tests.SMSlinkTest -->
+      <class name="Tests.ValuesTest">
+        <methods>
+          <include name="ValuesPageFunctionality"/>
+          <include name="setExtent"/>
+          <include name="setUp"/>
+          <include name="attachScreenshots"/>
+          <include name="initializeBrowser"/>
+          <include name="closeBrowser"/>
+          <include name="endReport"/>
+        </methods>
+      </class> <!-- Tests.ValuesTest -->
+      <class name="Tests.MobileTest">
+        <methods>
+          <include name="setExtent"/>
+          <include name="setUp"/>
+          <include name="attachScreenshots"/>
+          <include name="initializeBrowser"/>
+          <include name="closeBrowser"/>
+          <include name="MobilePageFunctionality"/>
+          <include name="endReport"/>
+        </methods>
+      </class> <!-- Tests.MobileTest -->
       <class name="Tests.HelpTest">
         <methods>
-          <include name="openBrowser"/>
-          <include name="attachScreenshot"/>
           <include name="setExtent"/>
-          <include name="intializeWebdriver"/>
+          <include name="setUp"/>
+          <include name="attachScreenshots"/>
+          <include name="initializeBrowser"/>
           <include name="closeBrowser"/>
           <include name="HelpPageFunctionality"/>
           <include name="endReport"/>
         </methods>
       </class> <!-- Tests.HelpTest -->
-      <class name="Tests.LoginTest">
+      <class name="Tests.SocialMediaTest">
         <methods>
-          <include name="openBrowser"/>
-          <include name="attachScreenshot"/>
-          <include name="invalidLogin"/>
           <include name="setExtent"/>
-          <include name="intializeWebdriver"/>
+          <include name="setUp"/>
+          <include name="SocialMediaPageFunctionality"/>
+          <include name="attachScreenshots"/>
+          <include name="SocialMediaPageFunctionality2"/>
+          <include name="initializeBrowser"/>
           <include name="closeBrowser"/>
           <include name="endReport"/>
         </methods>
-      </class> <!-- Tests.LoginTest -->
+      </class> <!-- Tests.SocialMediaTest -->
+      <class name="Tests.CareerTest">
+        <methods>
+          <include name="setExtent"/>
+          <include name="setUp"/>
+          <include name="attachScreenshots"/>
+          <include name="CareersPageFunctionality"/>
+          <include name="initializeBrowser"/>
+          <include name="closeBrowser"/>
+          <include name="endReport"/>
+        </methods>
+      </class> <!-- Tests.CareerTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite parallel="classes" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test parallel="classes" name="Test(failed)">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test name="Test(failed)">
     <classes>
+      <class name="Tests.SitemapTest">
+        <methods>
+          <include name="setExtent"/>
+          <include name="setUp"/>
+          <include name="SitemapPageFunctionality"/>
+          <include name="attachScreenshots"/>
+          <include name="initializeBrowser"/>
+          <include name="closeBrowser"/>
+          <include name="endReport"/>
+        </methods>
+      </class> <!-- Tests.SitemapTest -->
+      <class name="Tests.AwardTest">
+        <methods>
+          <include name="setExtent"/>
+          <include name="setUp"/>
+          <include name="AwardPageTest3"/>
+          <include name="attachScreenshots"/>
+          <include name="AwardPageTest2"/>
+          <include name="AwardPageTest"/>
+          <include name="initializeBrowser"/>
+          <include name="closeBrowser"/>
+          <include name="endReport"/>
+        </methods>
+      </class> <!-- Tests.AwardTest -->
       <class name="Tests.CancelTicketTest">
         <methods>
           <include name="CancelTicket"/>
@@ -36,6 +60,17 @@
           <include name="endReport"/>
         </methods>
       </class> <!-- Tests.BlogTest -->
+      <class name="Tests.SafetyTest">
+        <methods>
+          <include name="setExtent"/>
+          <include name="setUp"/>
+          <include name="SafetyPageTest"/>
+          <include name="attachScreenshots"/>
+          <include name="initializeBrowser"/>
+          <include name="closeBrowser"/>
+          <include name="endReport"/>
+        </methods>
+      </class> <!-- Tests.SafetyTest -->
       <class name="Tests.LoginTest">
         <methods>
           <include name="invalidLogin"/>
