@@ -1,6 +1,14 @@
 #Automation Final Project
 
-*[Visit Website](https://www.redbus.com)*
+*[Visit Website used for automation](https://www.redbus.in/)*
+
+
+GitHub repository:
+
+
+*[Visit GitHub Repository of this project](https://github.com/aditikhulbe/FinalAssignment.git)*
+
+
 
 ---
 #Module Description:
@@ -48,6 +56,7 @@ _ Folder where any failed screenshot gets saved_
 
 _folder contains the external jar file for screenshots_
 
+---
 
 ** 7. log:** 
 
@@ -111,5 +120,9 @@ _First, Run the following command in the project command prompt_
 2. Right click > run as testng
 
 
+---
 
+**Jenkins Integration:** See attached file in project named "Jenkins.docx"
+
+---
 
